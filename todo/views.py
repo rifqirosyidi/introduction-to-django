@@ -25,3 +25,11 @@ def add_todo(request):
         new_todo.save()
 
     return redirect('index')
+
+
+def complete_todo(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    todo.complete = True
+    todo.save()
+
+    return redirect('index')
